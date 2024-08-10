@@ -1,0 +1,67 @@
+---
+
+- name: create /etc/ruuvi-go-gateway directory
+  file:
+    path: /etc/ruuvi-go-gateway
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: download & extract ruuvi-go-gateway binary
+  unarchive:
+    src: "https://github.com/Scrin/ruuvi-go-gateway/releases/download/{{ ruuvi-go-gateway_version }}/{{ ruuvi-go-gateway_release_filename }}"
+    dest: "/etc/ruuvi-go-gateway/{{ ruuvicollector_release_filename }}"
+    remote_src: true
+  ignore_errors: "{{ ansible_check_mode }}"
+
+- name: generate ruuvi-go-gateway configuration
+  template:
+    src: ruuvi-go-gateway-config.yml.j2
+    dest: /etc/ruuvi-go-gateway/config.yml
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart ruuvi-collector
+
+- name: configure ruuvi-go-gateway service
+  template:
+    src: ruuvi-go-gateway.service.j2
+    dest: /etc/systemd/system/ruuvi-go-gateway.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart ruuvi-collector
+
+- name: create /etc/ruuvibridge directory
+  file:
+    path: /etc/ruuvibridge
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: download & extract ruuvibridge binary
+  unarchive:
+    src: "https://github.com/Scrin/ruuvibridge/releases/download/{{ ruuvi-go-gateway_version }}/{{ ruuvi-go-gateway_release_filename }}"
+    dest: "/etc/ruuvibridge/{{ ruuvicollector_release_filename }}"
+    remote_src: true
+  ignore_errors: "{{ ansible_check_mode }}"
+
+- name: generate ruuvibridge configuration
+  template:
+    src: ruuvibridge-config.yml.j2
+    dest: /etc/ruuvibridge/config.yml
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart ruuvi-collector
+
+- name: configure ruuvibridge service
+  template:
+    src: ruuvibridge.service.j2
+    dest: /etc/systemd/system/ruuvibridge.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart ruuvi-collector

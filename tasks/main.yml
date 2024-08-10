@@ -1,2 +1,9 @@
 ---
-# tasks file for ruuvibridge
+
+- name: include ruuvicollector tasks for debian
+  include_tasks: debian.yml
+  args:
+    apply:
+      become: true
+  when:
+    - ansible_distribution == 'Debian'
