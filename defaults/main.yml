@@ -6,9 +6,9 @@ ruuvigogateway_include_all: false
 ruuvigogateway_hci_index: 0
 ruuvigogateway_mqtt_enabled: false
 ruuvigogateway_mqtt_broker_url: "tcp://localhost:1883"
-ruuvigogateway_mqtt_client_id: ruuvi
-ruuvigogateway_mqtt_username: ruuvi
-ruuvigogateway_mqtt_password: ruuvi
+ruuvigogateway_mqtt_client_id: ruuvi-go-gateway
+ruuvigogateway_mqtt_username: ruuvigogateway
+ruuvigogateway_mqtt_password: ruuvipassword
 ruuvigogateway_mqtt_topic_prefix: ruuvi
 ruuvigogateway_log_level: info
 
