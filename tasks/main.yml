@@ -1,0 +1,9 @@
+---
+
+- name: include ruuvibridge tasks for debian
+  include_tasks: debian.yml
+  args:
+    apply:
+      become: true
+  when:
+    - ansible_distribution == 'Debian'

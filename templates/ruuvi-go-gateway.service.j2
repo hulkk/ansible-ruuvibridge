@@ -1,0 +1,12 @@
+[Unit]
+Description=Ruuvi-go-gateway service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/etc/ruuvi-go-gateway/ruuvi-go-gateway -config /etc/ruuvi-go-gateway/config.yml -strict-config
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

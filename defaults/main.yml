@@ -1,0 +1,25 @@
+---
+ruuvigogateway_version: "v0.2.1"
+ruuvigogateway_binary_filename: "ruuvi-go-gateway"
+ruuvigogateway_mac: "00:00:00:00:00:00"
+ruuvigogateway_include_all: false
+ruuvigogateway_hci_index: 0
+ruuvigogateway_mqtt_enabled: false
+ruuvigogateway_mqtt_broker_url: "tcp://localhost:1883"
+ruuvigogateway_mqtt_client_id: ruuvi-go-gateway
+ruuvigogateway_mqtt_username: ruuvigogateway
+ruuvigogateway_mqtt_password: ruuvipassword
+ruuvigogateway_mqtt_topic_prefix: ruuvi
+ruuvigogateway_log_level: info
+
+ruuvibridge_version: "v0.3.1"
+ruuvibridge_binary_filename: "ruuvibridge"
+ruuvibridge_mqtt_enabled: false
+ruuvibridge_mqtt_broker_url: "tcp://localhost:1883"
+ruuvibridge_mqtt_clientid: RuuviBridgeListener
+ruuvibridge_mqtt_topic_prefix: ruuvi
+ruuvibridge_influxdb_cloud_enabled: false
+ruuvibridge_influxdb_cloud_url: "https://eu-central-1-1.aws.cloud2.influxdata.com"
+ruuvibridge_influxdb_cloud_auth_token: secretBASE64
+ruuvibridge_influxdb_cloud_database: ruuvi
+ruuvibridge_log_level: info

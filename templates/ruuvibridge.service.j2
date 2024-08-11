@@ -1,0 +1,12 @@
+[Unit]
+Description=Ruuvibridge service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/etc/ruuvibridge/ruuvibridge -config /etc/ruuvibridge/config.yml -strict-config
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
