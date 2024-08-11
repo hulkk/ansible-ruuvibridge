@@ -49,7 +49,7 @@ processing:
   # denylist - mac addresses listed in filter_list will be skipped
   filter_mode: {{ ruuvibridge_filter_mode }}
   # List of mac addresses to allow or deny if filter_mode is either allowlist or denylist
-  filter_list: 
+  filter_list:
 {% for item in ruuvibridge_filter_list %}
     - {{ item }}
 {% endfor %}
