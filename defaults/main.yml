@@ -15,8 +15,8 @@ ruuvibridge_filter_list:
   - FFEEDDCCBBAA
   - F0E1D2C3B4A5
 ruuvibridge_tag_names:
-  - "AAAA:room"
-  - "BBBB:another"
+  - FFEEDDCCBBAA: Indoors
+  - F0E1D2C3B4A5: Fridge
 ruuvigogateway_log_level: info
 
 ruuvibridge_version: "v0.3.1"
