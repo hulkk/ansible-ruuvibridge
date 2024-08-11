@@ -11,9 +11,12 @@
 - name: download & extract ruuvi-go-gateway binary
   unarchive:
     src: "https://github.com/Scrin/ruuvi-go-gateway/releases/download/{{ ruuvigogateway_version }}/{{ ruuvigogateway_binary_filename }}-{{ ruuvigogateway_version }}-linux-arm64.tar.gz"
-    dest: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_binary_filename }}"
+    dest: "/etc/ruuvi-go-gateway/"
     remote_src: true
   ignore_errors: "{{ ansible_check_mode }}"
+
+- name: fail
+  fail:
 
 - name: extract ruuvi-go-gateway binary
   unarchive:
