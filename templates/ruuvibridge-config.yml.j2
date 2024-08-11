@@ -11,7 +11,7 @@ gateway_polling:
 # Recommended option: Have the gateway send the measurements to a MQTT server and let RuuviBridge subscribe to updates in real time
 mqtt_listener:
   # Flag to enable or disable subscribing to a topic on a MQTT server
-  enabled: {{ ruuvibridge_mqtt_enabled }}
+  enabled: {{ ruuvibridge_mqtt_enabled | lower }}
   # MQTT broker url, including scheme (tcp, ssl or ws), hostname or IP address, and port
   broker_url: {{ ruuvibridge_mqtt_broker_url }}
   # Client ID, required for persistent sessions and has to be unique on the MQTT server
@@ -77,7 +77,7 @@ influxdb_publisher:
 # Supports InfluxDB 3.x
 influxdb3_publisher:
   # Flag to enable or disable publishing the processed data to InfluxDB
-  enabled: {{ ruuvibridge_influxdb_cloud_enabled }}
+  enabled: {{ ruuvibridge_influxdb_cloud_enabled | lower }}
   # Minimum interval for measurements to publish per tag. InfluxDB handles frequent updates very efficiently due to delta compression so the default is no limit
   minimum_interval: 0s
   # URL for InfluxDB3, including scheme, hostname and port
