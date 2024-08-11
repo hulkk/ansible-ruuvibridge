@@ -15,17 +15,6 @@
     remote_src: true
   ignore_errors: "{{ ansible_check_mode }}"
 
-- name: fail
-  fail:
-
-- name: extract ruuvi-go-gateway binary
-  unarchive:
-    src: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_binary_filename }}-linux-arm64.tar.gz"
-    dest: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_binary_filename }}"
-    remote_src: true
-  when: false
-  ignore_errors: "{{ ansible_check_mode }}"
-
 - name: generate ruuvi-go-gateway configuration
   template:
     src: "ruuvi-go-gateway-config.yml.j2"
@@ -54,8 +43,8 @@
 
 - name: download & extract ruuvibridge binary
   unarchive:
-    src: "https://github.com/Scrin/ruuvibridge/releases/download/{{ ruuvibridge_version }}/{{ ruuvibridge_release_filename }}"
-    dest: "/etc/ruuvibridge/{{ ruuvibridge_release_filename }}"
+    src: "https://github.com/Scrin/ruuvibridge/releases/download/{{ ruuvibridge_version }}/{{ ruuvibridge_binary_filename }}-{{ ruuvibridge_version }}-linux-arm64.tar.gz"
+    dest: "/etc/ruuvibridge/"
     remote_src: true
   ignore_errors: "{{ ansible_check_mode }}"
 
