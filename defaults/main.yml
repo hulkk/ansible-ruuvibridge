@@ -10,6 +10,13 @@ ruuvigogateway_mqtt_client_id: ruuvi-go-gateway
 ruuvigogateway_mqtt_username: ruuvigogateway
 ruuvigogateway_mqtt_password: ruuvipassword
 ruuvigogateway_mqtt_topic_prefix: ruuvi
+ruuvibridge_filter_mode: none
+ruuvibridge_filter_list:
+  - foo
+  - bar
+ruuvibridge_tag_names:
+  - "AAAA:room"
+  - "BBBB:another"
 ruuvigogateway_log_level: info
 
 ruuvibridge_version: "v0.3.1"
