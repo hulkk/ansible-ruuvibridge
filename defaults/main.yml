@@ -12,8 +12,8 @@ ruuvigogateway_mqtt_password: ruuvipassword
 ruuvigogateway_mqtt_topic_prefix: ruuvi
 ruuvibridge_filter_mode: none
 ruuvibridge_filter_list:
-  - foo
-  - bar
+  - FFEEDDCCBBAA
+  - F0E1D2C3B4A5
 ruuvibridge_tag_names:
   - "AAAA:room"
   - "BBBB:another"

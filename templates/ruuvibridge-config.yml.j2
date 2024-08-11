@@ -49,7 +49,10 @@ processing:
   # denylist - mac addresses listed in filter_list will be skipped
   filter_mode: {{ ruuvibridge_filter_mode }}
   # List of mac addresses to allow or deny if filter_mode is either allowlist or denylist
-  filter_list: {{ ruuvibridge_filter_list }}
+  filter_list: 
+{% for item in ruuvibridge_filter_list %}
+    - {{ item }}
+{% endfor %}
 
 # Supports both InfluxDB 1.8 and 2.x
 influxdb_publisher:
@@ -128,7 +131,7 @@ mqtt_publisher:
   #homeassistant_discovery_prefix: homeassistant
 
 # Optional names for the tags with the key being the mac address and value being the desired name
-tag_names: {{ ruuvibridge_tag_names }}
+tag_names: {{ ruuvibridge_tag_names | to_nice_yaml }}
 
 # Logging options for RuuviBridge itself
 logging:
