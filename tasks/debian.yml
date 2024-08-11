@@ -15,7 +15,7 @@
     owner: root
     group: root
     mode: '0644'
-ignore_errors: "{{ ansible_check_mode }}"
+  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: extract ruuvi-go-gateway binary
   unarchive:
