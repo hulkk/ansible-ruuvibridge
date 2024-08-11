@@ -8,9 +8,18 @@
     group: root
     mode: "0755"
 
-- name: download & extract ruuvi-go-gateway binary
+- name: download ruuvi-go-gateway binary
+  get_url:
+    url: "https://github.com/Scrin/ruuvi-go-gateway/releases/download/{{ ruuvigogateway_version }}/{{ ruuvigogateway_release_filename }}.tar.gz"
+    dest: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_release_filename }}.tar.gz"
+    owner: root
+    group: root
+    mode: '0644'
+ignore_errors: "{{ ansible_check_mode }}"
+
+- name: extract ruuvi-go-gateway binary
   unarchive:
-    src: "https://github.com/Scrin/ruuvi-go-gateway/releases/download/{{ ruuvigogateway_version }}/{{ ruuvigogateway_release_filename }}"
+    src: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_release_filename }}.tar.gz"
     dest: "/etc/ruuvi-go-gateway/{{ ruuvigogateway_release_filename }}"
     remote_src: true
   ignore_errors: "{{ ansible_check_mode }}"
