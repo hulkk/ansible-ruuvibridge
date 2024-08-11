@@ -3,8 +3,8 @@ ruuvigogateway_version: "v0.2.1-linux-arm64"
 ruuvigogateway_release_filename: "ruuvi-go-gateway-{{ ruuvigogateway_version }}.tar.gz"
 
 ruuvibridge_mqtt_enabled: false
-ruuvibridge_mqtt_broker_url: "tcp:\\localhost:1338"
-ruuvibridge_mqtt_clientid: ruuvibridge
+ruuvibridge_mqtt_broker_url: "tcp:\localhost:1338"
+ruuvibridge_mqtt_clientid: RuuviBridgeListener
 ruuvibridge_mqtt_topic_prefix: ruuvi
 ruuvibridge_influxdb_cloud_enabled: false
 ruuvibridge_influxdb_cloud_url: "https:\\"
