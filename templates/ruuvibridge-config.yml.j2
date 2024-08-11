@@ -131,7 +131,10 @@ mqtt_publisher:
   #homeassistant_discovery_prefix: homeassistant
 
 # Optional names for the tags with the key being the mac address and value being the desired name
-tag_names: {{ ruuvibridge_tag_names | to_nice_yaml }}
+tag_names:
+{% for item in ruuvibridge_tag_names %}
+  {{ item }}
+{% endfor %}
 
 # Logging options for RuuviBridge itself
 logging:
