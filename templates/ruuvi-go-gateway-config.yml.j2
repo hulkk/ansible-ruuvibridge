@@ -3,7 +3,7 @@
 gw_mac: {{ ruuvigogateway_mac }}
 
 # Whether to include all advertisements (true) or just those from RuuviTags (false)
-all_advertisements: {{ ruuvigogateway_include_all }}
+all_advertisements: {{ ruuvigogateway_include_all | lower }}
 
 # HCI device index for the bluetooth adapter to use. 0 by default, which should correspond to the hci0 device
 hci_index: {{ ruuvigogateway_hci_index }}
