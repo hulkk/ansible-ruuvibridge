@@ -1,0 +1,16 @@
+[Unit]
+ Description=Ruuvi-go-gateway service
+ After=bluetooth.service
+
+ [Service]
+ User=pi
+ WorkingDirectory=/etc/ruuvi-go-gateway/
+ ExecStartPre=/bin/sleep 10
+ ExecStart=/usr/bin/java -jar ruuvi-collector.jar
+ SuccessExitStatus=0
+ TimeoutStopSec=10
+ Restart=on-failure
+ RestartSec=5
+
+ [Install]
+ WantedBy=multi-user.target
