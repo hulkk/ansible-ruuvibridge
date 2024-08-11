@@ -13,12 +13,12 @@ mqtt:
   # Flag to enable or disable publishing the data to a MQTT server
   enabled: false
   # MQTT broker url, including scheme (tcp, ssl or ws), hostname or IP address, and port
-  broker_url: tcp://ip.or.hostname:1883
-  client_id: ruuvi-go-gateway
-  username: ruuvigogateway
-  password: ruuvipassword
+  broker_url: {{ ruuvigogateway_mqtt_broker_url }}
+  client_id: {{ ruuvigogateway_mqtt_client_id }}
+  username: {{ ruuvigogateway_mqtt_username }}
+  password: {{ ruuvigogateway_mqtt_password }}
   # Topic prefix where to publish, in format <topic_prefix>/<mac>
-  topic_prefix: ruuvi
+  topic_prefix: {{ ruuvigogateway_mqtt_topic_prefix }}
   # Topic where to publish LWT "status messages" on connect/disconnect. Empty means disabled.
   # The default value for this is <topic_prefix>/gw_status which matches the behavior of the physical Ruuvi Gateway
   #lwt_topic: ""
