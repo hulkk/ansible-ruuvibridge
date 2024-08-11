@@ -11,18 +11,18 @@ gateway_polling:
 # Recommended option: Have the gateway send the measurements to a MQTT server and let RuuviBridge subscribe to updates in real time
 mqtt_listener:
   # Flag to enable or disable subscribing to a topic on a MQTT server
-  enabled: false
+  enabled: {{ ruuvibridge_mqtt_enabled }}
   # MQTT broker url, including scheme (tcp, ssl or ws), hostname or IP address, and port
-  broker_url: tcp://ip.or.hostname:1883
+  broker_url: {{ ruuvibridge_mqtt_broker_url }}
   # Client ID, required for persistent sessions and has to be unique on the MQTT server
-  client_id: RuuviBridgeListener
+  client_id: {{ ruuvibridge_mqtt_clientid }}
   username: ruuvibridge
   password: ruuvipassword
   # Topic prefix to subscribe to, expecting RuuviTag measurements to be published as <topic_prefix>/<mac>
   # You can use + character as a single-level wildcard, for example if you have the gateway mac address in the
   # topic by checking the "Use Ruuvi Gateway's MAC address on the topic preﬁx" option in the Ruuvi Gateway config
   # for example: ruuvi/+ as the topic prefix would match the topic ruuvi/<gateway_mac>/<tag_mac>
-  topic_prefix: ruuvi
+  topic_prefix: {{ ruuvibridge_mqtt_topic_prefix }}
   # Topic where to publish LWT "status messages" on connect/disconnect. Empty means disabled.
   # Note that the mqtt_listener and mqtt_publisher have their own distinct connections and you should not use the same lwt topic for both.
   lwt_topic: ""
@@ -77,15 +77,15 @@ influxdb_publisher:
 # Supports InfluxDB 3.x
 influxdb3_publisher:
   # Flag to enable or disable publishing the processed data to InfluxDB
-  enabled: false
+  enabled: {{ ruuvibridge_influxdb_cloud_enabled }}
   # Minimum interval for measurements to publish per tag. InfluxDB handles frequent updates very efficiently due to delta compression so the default is no limit
   minimum_interval: 0s
   # URL for InfluxDB3, including scheme, hostname and port
-  url: https://eu-central-1-1.aws.cloud2.influxdata.com
+  url: {{ ruuvibridge_influxdb_cloud_url }}
   # Also referred to as "auth token"
-  auth_token: changethis
+  auth_token: {{ ruuvibridge_influxdb_cloud_auth_token }}
   # Database to use
-  database: ruuvi
+  database: {{ ruuvibridge_influxdb_cloud_database }}
   # Measurement name to use
   measurement: ruuvi_measurements
   # Uncomment to add additional influxdb tags to the measurements
@@ -139,7 +139,7 @@ logging:
   # Type can be either "structured", "json" or "simple"
   type: simple
   # Valid logging levels from most verbose to least verbose: trace, debug, info, warn, error, fatal, panic
-  level: info
+  level: {{ ruuvibridge_log_level }}
   # Include timestamp in the log line. Can be useful to turn off with certain logging systems which add their own timestamps
   timestamps: true
   # Whether to include the log caller in the logs. This will increase the size of logs but it helps in troubleshooting in some cases
