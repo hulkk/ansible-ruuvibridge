@@ -1,7 +1,15 @@
 ---
 - name: restart ruuvi-go-gateway
   systemd:
-    name: ruuvi-go-gatewa
+    name: ruuvi-go-gateway
+    state: restarted
+    daemon_reload: true
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+
+- name: restart ruuvibridge
+  systemd:
+    name: ruuvibridge
     state: restarted
     daemon_reload: true
   become: true

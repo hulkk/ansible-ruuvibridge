@@ -43,8 +43,8 @@
 
 - name: download & extract ruuvibridge binary
   unarchive:
-    src: "https://github.com/Scrin/ruuvibridge/releases/download/{{ ruuvi-go-gateway_version }}/{{ ruuvi-go-gateway_release_filename }}"
-    dest: "/etc/ruuvibridge/{{ ruuvicollector_release_filename }}"
+    src: "https://github.com/Scrin/ruuvibridge/releases/download/{{ ruuvibridge_version }}/{{ ruuvibridge_release_filename }}"
+    dest: "/etc/ruuvibridge/{{ ruuvibridge_release_filename }}"
     remote_src: true
   ignore_errors: "{{ ansible_check_mode }}"
 
@@ -55,7 +55,7 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart ruuvi-collector
+  notify: restart ruuvibridge
 
 - name: configure ruuvibridge service
   template:
@@ -64,4 +64,4 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart ruuvi-collector
+  notify: restart ruuvibridge
