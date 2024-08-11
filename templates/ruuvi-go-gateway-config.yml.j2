@@ -1,12 +1,12 @@
 # {{ ansible_managed }}
 # MAC address to use as the gateway mac address
-gw_mac: 00:00:00:00:00:00
+gw_mac: {{ ruuvigogateway_mac }}
 
 # Whether to include all advertisements (true) or just those from RuuviTags (false)
-all_advertisements: false
+all_advertisements: {{ ruuvigogateway_include_all }}
 
 # HCI device index for the bluetooth adapter to use. 0 by default, which should correspond to the hci0 device
-hci_index: 0
+hci_index: {{ ruuvigogateway_hci_index }}
 
 # Publish the data to MQTT in Ruuvi Gateway format
 mqtt:
@@ -43,7 +43,7 @@ logging:
   # Type can be either "structured", "json" or "simple"
   type: simple
   # Valid logging levels from most verbose to least verbose: trace, debug, info, warn, error, fatal, panic
-  level: info
+  level: {{ ruuvigogateway_log_level }}
   # Include timestamp in the log line. Can be useful to turn off with certain logging systems which add their own timestamps
   timestamps: true
   # Whether to include the log caller in the logs. This will increase the size of logs but it helps in troubleshooting in some cases
