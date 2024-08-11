@@ -1,2 +1,8 @@
 ---
-# handlers file for ruuvibridge
+- name: restart ruuvi-go-gateway
+  systemd:
+    name: ruuvi-go-gatewa
+    state: restarted
+    daemon_reload: true
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
