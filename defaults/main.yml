@@ -22,4 +22,11 @@ ruuvibridge_influxdb_cloud_enabled: false
 ruuvibridge_influxdb_cloud_url: "https://eu-central-1-1.aws.cloud2.influxdata.com"
 ruuvibridge_influxdb_cloud_auth_token: secretBASE64
 ruuvibridge_influxdb_cloud_database: ruuvi
+ruuvibridge_filter_mode: none
+ruuvibridge_filter_list:
+  - foo
+  - bar
+ruuvibridge_tag_names:
+  - "AAAA:room"
+  - "BBBB:another"
 ruuvibridge_log_level: info
