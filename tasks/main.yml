@@ -1,6 +1,6 @@
 ---
 
-- name: include ruuvicollector tasks for debian
+- name: include ruuvibridge tasks for debian
   include_tasks: debian.yml
   args:
     apply:
