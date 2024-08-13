@@ -5,6 +5,11 @@
     name: mosquitto
     state: present
 
+- name: enable mosquitto service
+  service:
+    name: mosquitto
+    state: started
+
 - name: create /etc/ruuvi-go-gateway directory
   file:
     path: "/etc/ruuvi-go-gateway"
