@@ -1,5 +1,10 @@
 ---
 
+- name: install mosquitto mqtt broker
+  apt:
+    name: mosquitto
+    state: present
+
 - name: create /etc/ruuvi-go-gateway directory
   file:
     path: "/etc/ruuvi-go-gateway"
