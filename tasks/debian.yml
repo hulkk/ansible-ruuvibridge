@@ -9,6 +9,7 @@
   service:
     name: mosquitto
     state: started
+  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: create /etc/ruuvi-go-gateway directory
   file:
