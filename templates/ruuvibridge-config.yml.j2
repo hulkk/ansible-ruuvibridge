@@ -80,7 +80,7 @@ influxdb3_publisher:
   # Flag to enable or disable publishing the processed data to InfluxDB
   enabled: {{ ruuvibridge_influxdb_cloud_enabled | lower }}
   # Minimum interval for measurements to publish per tag. InfluxDB handles frequent updates very efficiently due to delta compression so the default is no limit
-  minimum_interval: 0s
+  minimum_interval: {{ ruuvibridge_influxdb_minimum_interval }}
   # URL for InfluxDB3, including scheme, hostname and port
   url: {{ ruuvibridge_influxdb_cloud_url }}
   # Also referred to as "auth token"

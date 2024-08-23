@@ -26,6 +26,7 @@ ruuvibridge_mqtt_broker_url: "tcp://localhost:1883"
 ruuvibridge_mqtt_clientid: RuuviBridgeListener
 ruuvibridge_mqtt_topic_prefix: ruuvi
 ruuvibridge_influxdb_cloud_enabled: false
+ruuvibridge_influxdb_minimum_interval: "0s"
 ruuvibridge_influxdb_cloud_url: "https://eu-central-1-1.aws.cloud2.influxdata.com"
 ruuvibridge_influxdb_cloud_auth_token: secretBASE64
 ruuvibridge_influxdb_cloud_database: ruuvi

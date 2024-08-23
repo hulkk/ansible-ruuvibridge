@@ -1,5 +1,16 @@
 ---
 
+- name: install mosquitto mqtt broker
+  apt:
+    name: mosquitto
+    state: present
+
+- name: enable mosquitto service
+  service:
+    name: mosquitto
+    state: started
+  ignore_errors: "{{ ansible_check_mode }}"
+
 - name: create /etc/ruuvi-go-gateway directory
   file:
     path: "/etc/ruuvi-go-gateway"
