@@ -8,7 +8,7 @@
 - name: enable mosquitto service
   service:
     name: mosquitto
-    state: started
+    enabled: true
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: create /etc/ruuvi-go-gateway directory
@@ -44,6 +44,12 @@
     mode: "0644"
   notify: restart ruuvi-go-gateway
 
+- name: enable ruuvi-go-gateway service
+  service:
+    name: ruuvi-go-gateway
+    enabled: true
+  ignore_errors: "{{ ansible_check_mode }}"
+
 - name: create /etc/ruuvibridge directory
   file:
     path: "/etc/ruuvibridge"
@@ -76,3 +82,9 @@
     group: root
     mode: '0644'
   notify: restart ruuvibridge
+
+- name: enable ruuvibridge service
+  service:
+    name: ruuvibridge
+    enabled: true
+  ignore_errors: "{{ ansible_check_mode }}"
